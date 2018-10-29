@@ -1,4 +1,5 @@
 #!/bin/bash
+# Run ./speed-up-ubuntu.sh --remove-some-packages
 
 
 if [ $EUID != 0 ]; then
