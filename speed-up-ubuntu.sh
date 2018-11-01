@@ -55,7 +55,7 @@ if askFor "Set vm.swappiness to 10"; then
 fi
 
 
-if askFor "Disable  floppy disk drive?"; then
+if askFor "Disable floppy disk drive"; then
   echo "blacklist floppy" > /etc/modprobe.d/blacklist-floppy.conf
 fi
 
