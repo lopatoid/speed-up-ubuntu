@@ -78,7 +78,4 @@ if askFor "Remove some packages (please see source of this script)"; then
   apt clean
 fi
 
-
-if askFor "reboot"; then
-  /sbin/reboot
-fi
+echo 'Reboot? (y/n)' && read x && [[ "$x" == "y" ]] && /sbin/reboot
