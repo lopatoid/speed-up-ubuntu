@@ -41,8 +41,12 @@ if askFor "Set vm.swappiness to 10"; then
   echo vm.swappiness=10 > /etc/sysctl.d/60-swappiness.conf
 fi
 
-if askFor "Remove some packages (please see source of this script)"; then
+
+if askFor "Remove some files and packages (please see source of this script)"; then
   apt update
+  
+  # remove non-english man pages and locales
+  rm -rf /usr/share/man/?? /usr/share/man/??_* /usr/share/locale/*
 
   # optimize VM guests
   if [ "$(systemd-detect-virt)" = "vmware" ] && [ -z $(which vmtoolsd) ]; then
@@ -50,11 +54,11 @@ if askFor "Remove some packages (please see source of this script)"; then
   fi
 
   # remove really unnecassary (in my case) packages
-  apt purge -y whoopsie libwhoopsie0
-  apt purge -y bluez bluez-obexd blueman
-  apt purge -y snapd gnome-software-plugin-snap squashfs-tools
-  apt purge -y parole thunderbird\*
-  apt purge -y update-manager-core
+  apt purge -y whoopsie libwhoopsie0 \
+    bluez bluez-obexd blueman \
+    snapd gnome-software-plugin-snap squashfs-tools \
+    update-manager-core \
+    parole thunderbird\*
 
   apt clean
 fi
