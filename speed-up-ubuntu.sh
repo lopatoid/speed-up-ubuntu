@@ -43,6 +43,7 @@ fi
 
 if askFor "Disable lvm2-lvmetad"; then
   systemctl disable lvm2-lvmetad
+  systemctl disable lvm2-lvmetad.socket
 fi
 
 
