@@ -46,7 +46,7 @@ if askFor "Disable lvm2-lvmetad"; then
 fi
 
 
-if askFor "Remove some files and packages (please see source of this script)"; then
+if askFor "Remove some files and packages (may break your system, please see source of this script!)"; then
   
   # remove non-english man pages and locales
   rm -rf /usr/share/man/?? /usr/share/man/??_* /usr/share/locale/*
@@ -62,6 +62,7 @@ if askFor "Remove some files and packages (please see source of this script)"; t
     bluez bluez-obexd blueman \
     snapd gnome-software-plugin-snap squashfs-tools \
     update-manager-core \
+    lxcfs \
     parole thunderbird\*
 
   apt clean
