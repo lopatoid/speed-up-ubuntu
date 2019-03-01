@@ -43,13 +43,13 @@ fi
 
 
 if askFor "Remove some files and packages (please see source of this script)"; then
-  apt update
   
   # remove non-english man pages and locales
   rm -rf /usr/share/man/?? /usr/share/man/??_* /usr/share/locale/*
 
   # optimize VM guests
   if [ "$(systemd-detect-virt)" = "vmware" ] && [ -z $(which vmtoolsd) ]; then
+    apt update
     apt install -y open-vm-tools
   fi
 
