@@ -41,6 +41,10 @@ if askFor "Set vm.swappiness to 10"; then
   echo vm.swappiness=10 > /etc/sysctl.d/60-swappiness.conf
 fi
 
+if askFor "Disable lvm2-lvmetad"; then
+  systemctl disable lvm2-lvmetad
+fi
+
 
 if askFor "Remove some files and packages (please see source of this script)"; then
   
