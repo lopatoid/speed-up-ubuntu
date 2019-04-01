@@ -57,7 +57,6 @@ if askFor "Remove some files and packages (may break your system, please see sou
     bluez bluez-obexd blueman \
     snapd gnome-software-plugin-snap squashfs-tools \
     update-manager-core \
-    lxcfs \
     parole thunderbird\*
 
   apt clean
