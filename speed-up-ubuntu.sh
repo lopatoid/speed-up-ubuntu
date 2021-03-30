@@ -33,7 +33,7 @@ fi
 
 # grep . /sys/devices/system/cpu/vulnerabilities/*
 if askFor "Disable Spectre, Meltdown, L1TF mitigation and NMI watchdog"; then
-  sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="nopti nospectre_v1 nospectre_v2 l1tf=off nospec_store_bypass_disable no_stf_barrier nmi_watchdog=0"/g' /etc/default/grub
+  sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="mitigations=off nmi_watchdog=0"/g' /etc/default/grub
   update-grub
 fi
 
